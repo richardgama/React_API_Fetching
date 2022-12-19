@@ -14,12 +14,12 @@ const Feed = ({coin}) => {
         <>  
             <hr className="separatorp"></hr>
             <br />
-            <img src={coin.image} width="4%"/>
+            <img style={{"vertical-align": "middle"}} src={coin.image} width="5%"/>
             <label className="coinName">
                 <b>{` ${coin.name} (${coin.symbol.toUpperCase()})`}</b>
             </label>
             <br />
-            <font size="+1">{price}</font><b><label style={{color: color_price_change }}>{price_change_string}</label></b>
+            <font size="+1">{price}</font><b><label style={{color: color_price_change}}>{price_change_string}</label></b>
             <br /><br />
         </>
     )
