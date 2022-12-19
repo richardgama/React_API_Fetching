@@ -4,6 +4,13 @@ import Feed from './feed';
 
 const App = () => {
 
+  let currency = 'eur'
+
+  const symbol = new Map(
+      [['eur', ' €'],
+      ['usd', ' $'],]
+  )
+
   const url = 'https://api.coingecko.com/api/v3/coins/markets?vs_currency=eur&order=market_cap_desc&per_page=20&page=1&sparkline=false'
 
   const [coinfeed,setCoinfeed] = useState([]);

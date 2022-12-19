@@ -12,6 +12,7 @@ const Feed = ({coin}) => {
         "+" + price_change.toFixed(1).toString() + ' %' :
         price_change.toFixed(1).toString() + ' %';
     const bigPrice = coin.current_price>10;
+    const sinceAth = coin.ath_change_percentage.toFixed(0).toString() + "%"
 
     if(bigPrice){
         let priceIntFloat = Math.floor(priceFloat);
@@ -32,6 +33,8 @@ const Feed = ({coin}) => {
             </label>
             <br />
             <font size="+2">{bigPrice? `${priceInt}.` : price}</font><font size="3">{priceDec}</font><font size="+2">{" €"}</font><b><label style={{color: color_price_change}}>{` ${price_change_string}`}</label></b>
+            <br />
+            {`ATH: ${sinceAth}`}
             <br /><br />
         </>
     )
