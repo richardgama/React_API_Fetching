@@ -4,16 +4,15 @@ import Feed from './feed';
 
 const App = () => {
 
-  let currency = 'eur'
-
   const symbol = new Map(
       [['eur', ' €'],
       ['usd', ' $'],]
   )
 
-  const url = 'https://api.coingecko.com/api/v3/coins/markets?vs_currency=eur&order=market_cap_desc&per_page=20&page=1&sparkline=false'
-
   const [coinfeed,setCoinfeed] = useState([]);
+  const [currency,setCurrency] = useState('eur');
+
+  const url = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=${currency}&order=market_cap_desc&per_page=20&page=1&sparkline=false`
 
   const excludedCoins = ['usdt','busd','usdc','xrp'];
 
@@ -55,7 +54,11 @@ const App = () => {
 
   useEffect(
     () => {Apicall();}
-    ,[])
+    ,[currency])
+
+  const setCurrencyFunc = (ccy) => {
+    setCurrency(ccy);
+  }
 
   return (
     <>
@@ -64,14 +67,18 @@ const App = () => {
         <h3 className="site-description">Some useful price feeds</h3>
       </header>
 
+      <center>
+        <div className="optionBox">
+          {`Currency: ${currency}`}
+          <button id="eurButton" onClick={() => {setCurrencyFunc('eur')}}>EUR</button>
+          <button id="usdButton" onClick={() => {setCurrencyFunc('usd')}}>USD</button>
+        </div>
+      </center>
+
       {/* <hr className="separator"></hr> */}
 
-      {/* <div className="App">
-        <Feed coin = {coinInfo}/>
-      </div> */}
-
       <div className="content">
-        {coinfeed.map((coinInfo)=>{if (excludedCoins.includes(coinInfo.symbol) == false) {return <Feed coin = {coinInfo}/>};})}
+        {coinfeed.map((coinInfo)=>{if (excludedCoins.includes(coinInfo.symbol) == false) {return <Feed coin = {coinInfo} currency={currency}/>};})}
       </div>
     </>
   );

@@ -1,9 +1,10 @@
 import React from "react";
 import './App.css';
+// import currency from './App.css';
 
-const Feed = ({coin}) => {
+const Feed = ({coin,currency}) => {
 
-    // const price = parseFloat(coin.current_price).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    const currencySymbol = (currency == 'usd') ? "$" : (currency == 'eur')? "€" : "N/A";
     const priceFloat = parseFloat(coin.current_price); 
     let price = ''; let priceInt = ''; let priceDec = '';
     const price_change = parseFloat(coin.price_change_percentage_24h);
@@ -32,7 +33,7 @@ const Feed = ({coin}) => {
                 <b>{` ${coin.name} (${coin.symbol.toUpperCase()})`}</b>
             </label>
             <br />
-            <font size="+2">{bigPrice? `${priceInt}.` : price}</font><font size="3">{priceDec}</font><font size="+2">{" €"}</font><b><label style={{color: color_price_change}}>{` ${price_change_string}`}</label></b>
+            <font size="+2">{` ${currencySymbol}`}</font><font size="+2">{bigPrice? `${priceInt}.` : price}</font><font size="3">{priceDec}</font><b><label style={{color: color_price_change}}>{` ${price_change_string}`}</label></b>
             <br />
             {`ATH: ${sinceAth}`}
             <br /><br />
