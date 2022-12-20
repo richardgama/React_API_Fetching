@@ -1,6 +1,5 @@
 import React from "react";
 import './App.css';
-// import currency from './App.css';
 
 const Feed = ({coin,currency}) => {
 
@@ -28,7 +27,7 @@ const Feed = ({coin,currency}) => {
         <>  
             <hr className="separatorp"></hr>
             <br />
-            <img style={{"vertical-align": "middle"}} src={coin.image} width="5%"/>
+            <img style={{"verticalAlign": "middle"}} src={coin.image} width="5%"/>
             <label className="coinName">
                 <b>{` ${coin.name} (${coin.symbol.toUpperCase()})`}</b>
             </label>

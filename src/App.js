@@ -67,9 +67,10 @@ const App = () => {
         <h3 className="site-description">Some useful price feeds</h3>
       </header>
 
+      <hr className="separator"></hr>
+
       <center>
         <div className="optionBox">
-          {`Currency: ${currency}`}
           <button id="eurButton" onClick={() => {setCurrencyFunc('eur')}}>EUR</button>
           <button id="usdButton" onClick={() => {setCurrencyFunc('usd')}}>USD</button>
         </div>
@@ -78,7 +79,8 @@ const App = () => {
       {/* <hr className="separator"></hr> */}
 
       <div className="content">
-        {coinfeed.map((coinInfo)=>{if (excludedCoins.includes(coinInfo.symbol) == false) {return <Feed coin = {coinInfo} currency={currency}/>};})}
+        {coinfeed.map((coinInfo)=>{if (excludedCoins.includes(coinInfo.symbol) == false) 
+              {return <Feed coin = {coinInfo} currency={currency} key={coinInfo.id}/>}})}
       </div>
     </>
   );
