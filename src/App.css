@@ -46,19 +46,24 @@
   align-items: center;
   margin: auto;
   text-align: center; 
-
 }
 
 button{
   margin: 0.5em;
   border-radius: 10%;
   outline: none;
-  padding: 16px;
+  padding: 10px;
   background: rgba(255, 255, 255, 0.65);
   color: rgb(0, 0, 0);
   cursor: pointer;
   border: 1px solid rgb(226, 226, 226);
 
+}
+
+.optionBox{
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 
 .content {
@@ -75,17 +80,27 @@ button{
 .separator{
   border: 0;
   height: 1px;
-  background: rgb(226, 226, 226);
+  background: rgb(240, 240, 240);
   width: 100%;
 }
 
 .separatorp{
   border: 0;
   height: 1px;
-  background: rgb(226, 226, 226);
+  background: rgb(240, 240, 240);
   width: 50%;
 }
 
-/* .coinName{
-  vertical-align: middle;
-} */
+.navigationBar{
+  padding: 1em;
+  margin: auto;
+  text-align: center;
+}
+
+.coinBox{
+  padding: 1em;
+}
+
+.navigationButton{
+  padding: 1em;
+}
